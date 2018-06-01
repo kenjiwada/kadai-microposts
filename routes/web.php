@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('singup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
+Route::post('singup','Auth\RegisterController@register')->name('signup.post');
+

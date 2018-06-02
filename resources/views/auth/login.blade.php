@@ -11,15 +11,15 @@
             {!! Form::open(['route' => 'login.post']) !!}
                 <div class="form-group">
                     {!! Form::label('email', 'Email') !!}
-                    {!! Form::email('email', old('email'),['class' => 'form-control']) !!}
+                    {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
                     {!! Form::label('password', 'Password') !!}
-                    {!! Form::email('password', ['class' => 'form-control']) !!}
+                    {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
                 
-                {!! Form::submit('Log in',['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}        
         
             <p>New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>

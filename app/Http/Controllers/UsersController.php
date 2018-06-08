@@ -22,12 +22,19 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        $microposts = $user->microposts()->orderBy('created_at', 'desc')->paginate(10);
         
-        return view('users.show', [
-            'user' => $user, 
-        ]);
+        $data = [
+            'user' => $user,
+            'microposts' => $microposts,
+        ];
+        
+        $data += $this->counts($user);
+        
+        return view('users.show', $data);
     }
-     public function followings($id)
+    
+    public function followings($id)
     {
         $user = User::find($id);
         $followings = $user->followings()->paginate(10);

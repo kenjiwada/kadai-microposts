@@ -18,7 +18,6 @@ class UsersController extends Controller
         ]);
     }
 
-    
     public function show($id)
     {
         $user = User::find($id);
@@ -61,12 +60,12 @@ class UsersController extends Controller
 
         $data += $this->counts($user);
 
-        return view('users.favorites', $data);
+        return view('users.followers', $data);
     }
+    
     public function favorites($id)
     {
         $user = User::find($id);
-        //$favorites = $user->favorite()->paginate(10); //byすだ
         $favorites = $user->favorites()->paginate(10);
 
         $data = [

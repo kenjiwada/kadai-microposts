@@ -22,6 +22,5 @@
             </ul>
             @include('microposts.favorites', ['microposts' => $users])
         </div>
-        @include('users.favorites_button', ['microposts' => $micropost])
     </div>
 @endsection
